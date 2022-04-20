@@ -1,6 +1,8 @@
 # Django-React-ECommerce
 
 
-Front-End: React
-backe-end: Python-Django
-State management: Redux
+<ul>
+<li>Front-End: React + Bootstrap</li>
+<li>back-end: Python-Django</li>
+<li>State management: Redux</li>
+</ul>
