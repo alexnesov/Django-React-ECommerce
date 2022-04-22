@@ -1,10 +1,15 @@
+import Header from './components/Header'
+import Footer from './components/Footer'
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>ECommerce</p>
-      </header>
+      <Header />
+      <main>
+        <h1>Welcome</h1>
+      </main>
+      <Footer />
     </div>
   );
 }
