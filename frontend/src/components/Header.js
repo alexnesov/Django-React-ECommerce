@@ -7,7 +7,7 @@ function Header() {
     <header>
       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
         <Container>
-          <Navbar.Brand href="/">Financial-Portfolio</Navbar.Brand>
+          <Navbar.Brand href="/">Financial-Portfolio.io</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
