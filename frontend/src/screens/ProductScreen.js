@@ -16,7 +16,13 @@ function ProductScreen(){
 
     return (
         <div>
-            {product.name}
+            <Link to = '/'className="btn btn-light my-3">Go Back</Link>
+            <Row>
+                <Col md={6}>
+                    <Image src={product.image} />
+                </Col>
+
+            </Row>
         </div>
     )
 }
