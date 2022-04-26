@@ -4,11 +4,11 @@ const products = [
       'name': 'Balance Sheets',
       'image': '/images/Fundamentals1.jpg',
       'description':
-        'US stock market companies\' balance shee\'s',
+        'US stock market companies\' balance sheet\'s',
       'brand': 'Apple',
       'category': 'Electronics',
       'price': 19.99,
-      'countInStock': 10,
+      'countInStock': 0,
       'rating': 4.5,
       'numReviews': 12,
     },
