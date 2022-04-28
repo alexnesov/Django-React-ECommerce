@@ -11,3 +11,8 @@
 <li>Back-end: Python-Django</li>
 <li>State management: Redux</li>
 </ul>
+
+
+
+
+<img src="https://github.com/alexnesov/Django-React-ECommerce/blob/main/arch.png">
