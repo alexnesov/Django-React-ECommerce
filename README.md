@@ -23,4 +23,8 @@ To start the env:<br>
 NPM-like command to initiate Django project:<br>
 ```django-admin startproject backend```
 
+
+To run the server (while in ``` root ```):<br>
+```python manage.py runserver```
+
 <img src="https://github.com/alexnesov/Django-React-ECommerce/blob/main/arch.png">
