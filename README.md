@@ -27,10 +27,13 @@ NPM-like command to initiate Django project:<br>
 To run the server (while in ``` root ```):<br>
 ```python manage.py runserver```
 
-<img src="https://github.com/alexnesov/Django-React-ECommerce/blob/main/arch.png>
+
+
+
+<img src="https://github.com/alexnesov/Django-React-ECommerce/blob/main/arch.png">
 
 
 
 
 
-<img src="https://github.com/alexnesov/Django-React-ECommerce/blob/main/db_model_diagram.png>
+<img src="https://github.com/alexnesov/Django-React-ECommerce/blob/main/db_model_diagram.png">
