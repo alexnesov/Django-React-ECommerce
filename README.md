@@ -33,7 +33,7 @@ Everytime a change is made to the DB model:<br>
 ``` python manage.py migrate ```
 <br>
 
-Do not forget to have a mogration folder with a ```__init__.py``` in it
+Do not forget to have a migration folder with a ```__init__.py``` in it
 
 <img src="https://github.com/alexnesov/Django-React-ECommerce/blob/main/arch.png">
 
