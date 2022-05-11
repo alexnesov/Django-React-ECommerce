@@ -37,3 +37,7 @@ To run the server (while in ``` root ```):<br>
 
 
 <img src="https://github.com/alexnesov/Django-React-ECommerce/blob/main/db_model_diagram.png">
+
+## Questions and answers
+
+<b>How is the front-end service "aware" of the user and of the fact that he is logged in?</b>
