@@ -7,6 +7,11 @@ from rest_framework.response import Response
 
 
 
+from .models import Product
+from .products import products
+from .serializers import ProductSerializer
+
+
 @api_view(['GET'])
 def getRoutes(request):
 
@@ -24,7 +29,14 @@ def getRoutes(request):
 
 @api_view(['GET'])
 def getProducts(request):
-    return Response(products)
+
+    # just returns all products from our database
+    products        = Product.objects.all()
+    serializer      = ProductSerializer(products, many=True)
+
+    print("serializer: ")
+    print(serializer)
+    return Response(serializer.data) # response from DB
 
 
 
