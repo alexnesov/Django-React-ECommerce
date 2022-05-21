@@ -34,17 +34,16 @@ def getProducts(request):
     products        = Product.objects.all()
     serializer      = ProductSerializer(products, many=True)
 
-    print("serializer: ")
-    print(serializer)
     return Response(serializer.data) # response from DB
 
 
 
 @api_view(['GET'])
 def getProduct(request, pk):
-    for i in products:
-        if i['_id'] == pk:
-            product = i
-            break
+    """
+    """
+    
+    product         = Product.objects.get(_id = pk)
+    serializer      = ProductSerializer(product, many= False)
 
-    return Response(product)
+    return Response(serializer.data)
