@@ -43,6 +43,7 @@ def getProduct(request, pk):
     """
     """
     
+    print("\n\n TEST pk: ", pk)
     product         = Product.objects.get(_id = pk)
     serializer      = ProductSerializer(product, many= False)
 
