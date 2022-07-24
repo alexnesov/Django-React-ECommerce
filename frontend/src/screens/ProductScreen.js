@@ -7,14 +7,16 @@ import Message from '../components/Message'
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux'
 import { listProductDetails } from '../actions/productActions'
+import { useNavigate } from "react-router-dom";
 
 
-function ProductScreen({ match, history }){
+function ProductScreen(){
 
     const [qty, setQty] = useState(1)
 
     const dispatch  = useDispatch()
     const params    = useParams();
+    let navigate    = useNavigate();
 
     const productDetails = useSelector(state => state.productDetails)
 
@@ -22,13 +24,13 @@ function ProductScreen({ match, history }){
 
     useEffect(() => {
         dispatch(listProductDetails(params.id))
-    }, [dispatch, match])
+    }, [dispatch, params.match])
   
 
     const addToCartHandler = () =>{
         console.log('Add to cart', params.id)
-        console.log('History, ', match)
-        history.push(`/cart/${params.id}?qty=${qty}`)
+        console.log('History, ', params.history)
+        navigate(`/cart/${params.id}?qty=${qty}`)
     }
 
     return (
