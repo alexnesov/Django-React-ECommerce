@@ -42,6 +42,10 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class UserSerializerWithToken(UserSerializer):
+
+    token     = serializers.SerializerMethodField(read_only = True)
+
+
     class Meta:
         model   = User
         fields  = ['id', '_id','username', 'email', 'name', 'isAdmin', 'token']
@@ -50,6 +54,7 @@ class UserSerializerWithToken(UserSerializer):
         """
         """
         token = RefreshToken.for_user(obj)
+
         return str(token.access_token)
 
 

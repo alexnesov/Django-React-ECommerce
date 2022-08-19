@@ -13,7 +13,6 @@ urlpatterns = [
     path('api/users/login', views.MyTokenObtainPairView.as_view(), 
           name='token_obtain_pair'),
 
-
     path('api/users/profile', views.getUserProfile, name="users-profile"),
 
 ]
