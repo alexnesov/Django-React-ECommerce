@@ -14,5 +14,6 @@ urlpatterns = [
           name='token_obtain_pair'),
 
     path('api/users/profile', views.getUserProfile, name="users-profile"),
+    path('api/users', views.getUsers, name="users-profile"),
 
 ]
