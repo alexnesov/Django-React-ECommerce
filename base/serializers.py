@@ -29,11 +29,9 @@ class UserSerializer(serializers.ModelSerializer):
         return obj.is_staff
 
 
-
     def get_name(self, obj):
         """
         """
-
         name = obj.first_name
         if name == '':
             name = obj.email
@@ -44,7 +42,6 @@ class UserSerializer(serializers.ModelSerializer):
 class UserSerializerWithToken(UserSerializer):
 
     token     = serializers.SerializerMethodField(read_only = True)
-
 
     class Meta:
         model   = User
