@@ -38,6 +38,7 @@ import {
             type: USER_LOGIN_FAIL,
             payload: error.response && error.response.data.detail
                 ? error.response.data.detail
+                : error.message
         })
 
     }
