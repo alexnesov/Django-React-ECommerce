@@ -12,9 +12,12 @@ import FormContainer from '../components/Message'
 import { login } from '../actions/userActions'
 import './FormContainer.css'
 
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 
-function LoginScreen({location, history}) {
+function LoginScreen({location}) {
+
+
+    const navigate                  = useNavigate()
 
     const [email, setEmail]       = useState('')
     const [password, setPassword] = useState('')
@@ -25,21 +28,15 @@ function LoginScreen({location, history}) {
     const redirect  = test.search ? test.search.split('=')[1] : '/'
     const userLogin = useSelector(state => state.userLogin)
 
-    console.log("history: ", history)
-
     console.log("userLogin: ", userLogin)
-
     const { error, loading, userInfo } = userLogin
-
     console.log("userInfo: ", userInfo)
-
 
     useEffect(() => {
         if(userInfo){
-            history.push(redirect)
+            navigate('/')
         }
-    }, [history, userInfo, redirect])
-
+    }, [userInfo, redirect])
 
     console.log("test: ", test)
 
