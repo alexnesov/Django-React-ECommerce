@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
-import { Form, Button, Row, Col } from 'react-bootstrap'
+import { Form, Button, Row, Col } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { useDispatch, useSelector } from 'react-redux'
-
-import Loader from '../components/Loader'
-import Message from '../components/Message'
-import FormContainer from '../components/Message'
-
-import { login } from '../actions/userActions'
-import './FormContainer.css'
+import Loader from '../components/Loader';
+import Message from '../components/Message';
+import FormContainer from '../components/FormContainer';
+import { login } from '../actions/userActions';
 
 import { useParams, useNavigate } from "react-router-dom"
 
@@ -18,15 +15,13 @@ function LoginScreen({location}) {
 
 
     const navigate                  = useNavigate()
+    const [email, setEmail]         = useState('')
+    const [password, setPassword]   = useState('')
 
-    const [email, setEmail]       = useState('')
-    const [password, setPassword] = useState('')
-
-    const dispatch  = useDispatch()
-
-    const test      = useParams();
-    const redirect  = test.search ? test.search.split('=')[1] : '/'
-    const userLogin = useSelector(state => state.userLogin)
+    const dispatch                  = useDispatch()
+    const test                      = useParams();
+    const redirect                  = test.search ? test.search.split('=')[1] : '/'
+    const userLogin                 = useSelector(state => state.userLogin)
 
     console.log("userLogin: ", userLogin)
     const { error, loading, userInfo } = userLogin
