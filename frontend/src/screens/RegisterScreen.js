@@ -49,7 +49,14 @@ function RegisterScreen({ location, history }) {
     const submitHandler = (e) => {
         e.preventDefault()
         console.log('Submitted!')   
-        dispatch(register(name, email, password))
+
+
+        if(password != confirmPassword){
+            setMessage('Passwords do not match')
+        }else{
+            dispatch(register(name, email, password))
+        }
+
     }
 
 
@@ -57,6 +64,7 @@ function RegisterScreen({ location, history }) {
 
         <FormContainer>
             <h1>Sign In</h1>
+            {message && <Message variant='danger'>{error}</Message>}
             {error && <Message variant='danger'>{error}</Message>}
             {loading && <Loader />}
 
@@ -65,6 +73,7 @@ function RegisterScreen({ location, history }) {
                 <Form.Group controlId='name'>
                     <Form.Label>Name</Form.Label>
                     <Form.Control
+                        required
                         type='name'
                         placeholder='Enter name'
                         value={name}
@@ -76,6 +85,7 @@ function RegisterScreen({ location, history }) {
                 <Form.Group controlId='email'>
                     <Form.Label>Email Address</Form.Label>
                     <Form.Control
+                        required
                         type='email'
                         placeholder='Enter Email'
                         value={email}
@@ -87,6 +97,7 @@ function RegisterScreen({ location, history }) {
                 <Form.Group controlId='password'>
                 <Form.Label>Password</Form.Label>
                 <Form.Control
+                    required
                     type='password'
                     placeholder='Enter Password'
                     value={password}
@@ -98,6 +109,7 @@ function RegisterScreen({ location, history }) {
             <Form.Group controlId='passwordConfirm'>
                 <Form.Label>Confirm Password</Form.Label>
                 <Form.Control
+                    required
                     type='password'
                     placeholder='Confirm Password'
                     value={confirmPassword}
