@@ -43,3 +43,5 @@ Do not forget to have a migrations folder with a ```__init__.py``` in it
 ## Questions and answers
 
 <b>How is the front-end service "aware" of the user and of the fact that he is logged in?</b>
+<br>
+JWT takes care of that

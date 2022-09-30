@@ -1,5 +1,3 @@
-import React from 'react'
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -28,7 +26,7 @@ function RegisterScreen({ location, history }) {
 
     const dispatch                  = useDispatch()
     const test_param                = useParams();
-    const redirect                  = test.search ? test.search.split('=')[1] : '/'
+    const redirect                  = test_param.search ? test_param.search.split('=')[1] : '/'
     const userLogin                 = useSelector(state => state.userLogin)
 
     console.log("userLogin: ", userLogin)
@@ -50,7 +48,6 @@ function RegisterScreen({ location, history }) {
         e.preventDefault()
         console.log('Submitted!')   
 
-
         if(password != confirmPassword){
             setMessage('Passwords do not match')
         }else{
@@ -61,10 +58,9 @@ function RegisterScreen({ location, history }) {
 
 
   return (
-
         <FormContainer>
             <h1>Sign In</h1>
-            {message && <Message variant='danger'>{error}</Message>}
+            {message && <Message variant='danger'>{message}</Message>}
             {error && <Message variant='danger'>{error}</Message>}
             {loading && <Loader />}
 
@@ -124,11 +120,8 @@ function RegisterScreen({ location, history }) {
 
             <Row className='py-3'>
                 <Col>
-
                     Have an Account? <Link to={redirect ? `/login?redirect=${redirect}` : '/register'}>
-
                     Sign In
-
                     </Link>
 
                 </Col>
