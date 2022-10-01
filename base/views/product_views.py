@@ -23,6 +23,8 @@ def getProducts(request):
 def getProduct(request, pk):
     """
     """
+    print("==============> request: ", request)
+    print("==============> pk: ", pk)
     product         = Product.objects.get(_id = pk)
     serializer      = ProductSerializer(product, many=False)
 
