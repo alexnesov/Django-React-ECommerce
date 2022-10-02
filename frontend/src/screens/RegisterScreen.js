@@ -16,20 +16,20 @@ import { useParams, useNavigate } from "react-router-dom"
 function RegisterScreen({ location, history }) {
 
 
-    const navigate                                  = useNavigate()
+    const navigate                               = useNavigate()
 
-    const [name, setName]                           = useState('')
-    const [email, setEmail]                         = useState('')
-    const [password, setPassword]                   = useState('')
-    const [confirmPassword, setConfirmPassword]     = useState('')
-    const [message, setMessage]                     = useState('')
+    const [name, setName]                        = useState('')
+    const [email, setEmail]                      = useState('')
+    const [password, setPassword]                = useState('')
+    const [confirmPassword, setConfirmPassword]  = useState('')
+    const [message, setMessage]                  = useState('')
 
-    const dispatch                  = useDispatch()
-    const test_param                = useParams();
-    const redirect                  = test_param.search ? test_param.search.split('=')[1] : '/'
-    const userLogin                 = useSelector(state => state.userLogin)
-
+    const dispatch                               = useDispatch()
+    const test_param                             = useParams();
+    const redirect                               = test_param.search ? test_param.search.split('=')[1] : '/'
+    const userLogin                              = useSelector(state => state.userLogin)
     console.log("userLogin: ", userLogin)
+
     const userRegister                  = useSelector(state => state.userRegister)
     const { error, loading, userInfo }  = userRegister
     
@@ -37,10 +37,12 @@ function RegisterScreen({ location, history }) {
     console.log("userInfo: ", userInfo)
 
     useEffect(() => {
-        if(userInfo){
+        console.log("userLogin.userInfo: ", userLogin.userInfo)
+        if(userLogin.userInfo){
+            console.log("====> Entered in useEffect !!!!!")
             navigate('/')
         }
-    }, [userInfo, redirect])
+    }, [userLogin.userInfo, redirect])
 
     console.log("test_param: ", test_param)
 
@@ -59,7 +61,7 @@ function RegisterScreen({ location, history }) {
 
   return (
         <FormContainer>
-            <h1>Sign In</h1>
+            <h1>Register</h1>
             {message && <Message variant='danger'>{message}</Message>}
             {error && <Message variant='danger'>{error}</Message>}
             {loading && <Loader />}
@@ -120,7 +122,8 @@ function RegisterScreen({ location, history }) {
 
             <Row className='py-3'>
                 <Col>
-                    Have an Account? <Link to = {redirect ? `/login?redirect=${redirect}` : '/register'}>
+                    Have an Account? 
+                    <Link to = {redirect ? `/login?redirect=${redirect}` : '/login'}>
                     Sign In
                     </Link>
 

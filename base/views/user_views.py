@@ -38,7 +38,7 @@ def registerUser(request):
     data = request.data
 
     try:
-        print('Data: ', data)
+        print('===============> Data: ', data)
 
         user = User.objects.create(
             first_name      = data['name'],
