@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserDetails, register } from '../actions/userActions';
+import { getUserDetails, updateUserProfile } from '../actions/userActions'
 import { useParams, useNavigate } from "react-router-dom"
 
 import { Link } from 'react-router-dom';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
+
+import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants'
 
 function ProfileScreen( {history} ) {
 
@@ -31,7 +33,8 @@ function ProfileScreen( {history} ) {
     console.log("userLogin: ", userLogin)
     const { userInfo }                           = userLogin
     
-
+    const userUpdateProfile                     = useSelector(state => state.userUpdateProfile)
+    const { success }                            = userUpdateProfile
     
     console.log("userInfo: ", userInfo)
 
@@ -41,14 +44,15 @@ function ProfileScreen( {history} ) {
             console.log("====> Entered in useEffect !!!!!")
             navigate('/login')
         } else {
-            if(!user || !user.name){
+            if(!user || !user.name || success){
+                dispatch({type:USER_UPDATE_PROFILE_RESET})
                 dispatch(getUserDetails('profile'))
             }else{
                 setName(user.name)
                 setEmail(user.email)
             }
         }
-    }, [dispatch, history, userLogin.userInfo, user])
+    }, [dispatch, history, userLogin.userInfo, user, success])
 
 
     const submitHandler = (e) => {
@@ -59,6 +63,12 @@ function ProfileScreen( {history} ) {
             setMessage('Passwords do not match')
         }else{
             console.log('Updating..')
+            dispatch(updateUserProfile({
+                'id':user._id,
+                'name': name,
+                'email': email,
+                'password': password
+            }))
         }
 
     }
@@ -102,7 +112,6 @@ function ProfileScreen( {history} ) {
                 <Form.Group controlId='password'>
                 <Form.Label>Password</Form.Label>
                 <Form.Control
-                    required
                     type = 'password'
                     placeholder = 'Enter Password'
                     value = {password}
